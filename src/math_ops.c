@@ -37,3 +37,14 @@ float sub(float a, float b)
 {
     return a - b;
 }
+
+float divide(float a, float b)
+{
+    if (b == 0.0f)
+    {
+        // cannot divide by zero
+        printf("Error: Division by zero\n");
+        return 0.0f;
+    }
+    return a / b;
+}
