@@ -14,10 +14,7 @@ char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this as
 // ----------------- MAIN PROGRAM -----------------
 
 
-float sub(float a, float b)
-{
-    return a - b;
-}
+
 
 
 int main(int argc, char *argv[]) 
