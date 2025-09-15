@@ -9,7 +9,8 @@ float pow(float base, int exponent);
 float multiply(float x, float y);
 float add(float x, float y);
 float sub(float a, float b);
+float divide(float a, float b);
 
 
-/* End of UNITY_INTERNALS_H */
+/* End of math_ops_h */
 #endif 
