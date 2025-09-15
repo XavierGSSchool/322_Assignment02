@@ -8,13 +8,9 @@ char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this as
 #include <stdbool.h>
 #include <string.h>
 #include "math_ops.h"
-//#include "code.c"
-//#include "code2.c"
 
 //#include "tests\tests.c"
 // ----------------- MAIN PROGRAM -----------------
-
-
 
 
 
@@ -54,6 +50,41 @@ int main(int argc, char *argv[])
             printf("  --square a           Square of a number\n");
             printf("  --cube a             Cube of a number\n");
         }
+        // Math operations Implemented how I think Pach wants
+        else if (strcmp(argv[1], "--addition") == 0 && argc == 4) {
+            float a = atof(argv[2]);
+            float b = atof(argv[3]);
+            printf("%f\n", add(a, b));
+            
+        } else if (strcmp(argv[1], "--subtraction") == 0 && argc == 4) {
+            float a = atof(argv[2]);
+            float b = atof(argv[3]);
+            printf("%f\n", sub(a, b));
+
+        } else if (strcmp(argv[1], "--multiplication") == 0 && argc == 4) {
+            float a = atof(argv[2]);
+            float b = atof(argv[3]);
+            printf("%f\n", multiply(a, b));
+
+        } else if (strcmp(argv[1], "--division") == 0 && argc == 4) {
+            float a = atof(argv[2]);
+            float b = atof(argv[3]);
+            printf("%f\n", divide(a, b));  
+
+        } else if (strcmp(argv[1], "--power") == 0 && argc == 4) {
+            float base = atof(argv[2]);
+            int exponent = atoi(argv[3]);
+            printf("%f\n", pow(base, exponent));
+
+        } else if (strcmp(argv[1], "--square") == 0 && argc == 3) {
+            float a = atof(argv[2]);
+            printf("%f\n", square(a));
+
+        } else if (strcmp(argv[1], "--cube") == 0 && argc == 3) {
+            float a = atof(argv[2]);
+            printf("%f\n", cube(a));
+        }
+
     }
     else
     {
