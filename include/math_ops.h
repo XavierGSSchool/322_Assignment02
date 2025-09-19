@@ -1,5 +1,6 @@
 #ifndef MATH_OPS_H
 #define MATH_OPS_H
+#include <stdio.h>
 
 // --------- FUNCTION DECLARATIONS ------------
 

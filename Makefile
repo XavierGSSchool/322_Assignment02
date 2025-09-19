@@ -27,22 +27,19 @@ $(TEST_TARGET): $(TEST_OBJS)
 
 # Compile main.c
 $(OBJ_DIR)/main.o: $(SRC_DIR)/main.c 
-	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Compile math_ops.c (previously  had code.c and code2.c)
 $(OBJ_DIR)/math_ops.o: $(SRC_DIR)/math_ops.c
-	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Compile tests.c
 $(OBJ_DIR)/tests.o: $(TEST_DIR)/tests.c
-	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Compile unity.c
 $(OBJ_DIR)/unity.o: $(TEST_DIR)/unity.c
-	@mkdir -p $(OBJ_DIR)
+
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
