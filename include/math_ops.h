@@ -4,14 +4,14 @@
 
 // --------- FUNCTION DECLARATIONS ------------
 
-float square(float x);
-float cube(float x);
-float pow(float base, int exponent);
-float multiply(float x, float y);
-float add(float x, float y);
-float sub(float a, float b);
-float divide(float a, float b);
-float sin(float x, int steps);
+float math_square(float x);
+float math_cube(float x);
+float math_pow(float base, int exponent);
+float math_multiply(float x, float y);
+float math_add(float x, float y);
+float math_sub(float a, float b);
+float math_divide(float a, float b);
+float math_sin(float x, int steps);
 
 
 /* End of math_ops_h */

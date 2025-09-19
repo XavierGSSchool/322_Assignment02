@@ -1,42 +1,31 @@
 char * AUTHOR_NAME = (char *) "Jakub Pach";
 char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the seriousness and implications of plagiarism.";
 
-
-//#define clearBuffer() while (getchar() != '\n');
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include "math_ops.h"
 
-//#include "tests\tests.c"
 // ----------------- MAIN PROGRAM -----------------
-
-
 
 int main(int argc, char *argv[]) 
 {
-
-// To change the command-line parameters, modify the following line:
-// lanuch.json.10:
-// "args": ["--help"], 
-// "args": ["--subtraction", "5", "3.0"] , // argues! attention not ["--subtraction 5 3.0"] <-- whole string in argv[1]!!!
-// etc.
-
     int failed_tests  = 0;
 
-    printf("%s\n", argv[0]);
-    printf("%s\n", argv[1]);
-    printf("%s\n", argv[2]);
-    printf("%s\n", argv[3]);
-    printf("%f\n", atof(argv[2]) );
+    // Debug prints (safer version)
+    printf("Program: %s\n", argv[0]);
+    if (argc > 1) printf("Arg1: %s\n", argv[1]);
+    if (argc > 2) printf("Arg2: %s\n", argv[2]);
+    if (argc > 3) printf("Arg3: %s\n", argv[3]);
+    if (argc > 2) printf("Arg2 as float: %f\n", atof(argv[2]));
 
     if (argc > 1 )
     {
         if(strcmp(argv[1], "--author") == 0) 
-            printf("author"); //printf(AUTHOR_NAME);
+            printf("%s\n", AUTHOR_NAME);  
         else if(strcmp(argv[1], "--authorship") == 0) 
-           printf("AUTHOR"); //printf(AUTHOR_AUTHORSHIP);
+            printf("%s\n", AUTHOR_AUTHORSHIP);  
         else if(strcmp(argv[1], "--help") == 0) 
         {
             printf("\nOptions:\n");
@@ -49,41 +38,41 @@ int main(int argc, char *argv[])
             printf("  --power a b          Raise a to the power of b\n");
             printf("  --square a           Square of a number\n");
             printf("  --cube a             Cube of a number\n");
-            printf("  --sin a steps        Compute sine of a (radians) using Taylor series with steps terms\n");
+            printf("  --sin x steps        Compute sine of a (radians) using Taylor series with steps terms\n");
         }
-        // Math operations Implemented how I think Pach wants
+        // Math operations
         else if (strcmp(argv[1], "--addition") == 0 && argc == 4) {
             float a = atof(argv[2]);
             float b = atof(argv[3]);
-            printf("%f\n", add(a, b));
+            printf("%f\n", math_add(a, b));  
             
         } else if (strcmp(argv[1], "--subtraction") == 0 && argc == 4) {
             float a = atof(argv[2]);
             float b = atof(argv[3]);
-            printf("%f\n", sub(a, b));
+            printf("%f\n", math_sub(a, b));  
 
         } else if (strcmp(argv[1], "--multiplication") == 0 && argc == 4) {
             float a = atof(argv[2]);
             float b = atof(argv[3]);
-            printf("%f\n", multiply(a, b));
+            printf("%f\n", math_multiply(a, b));  
 
         } else if (strcmp(argv[1], "--division") == 0 && argc == 4) {
             float a = atof(argv[2]);
             float b = atof(argv[3]);
-            printf("%f\n", divide(a, b));  
+            printf("%f\n", math_divide(a, b));   
 
         } else if (strcmp(argv[1], "--power") == 0 && argc == 4) {
             float base = atof(argv[2]);
             int exponent = atoi(argv[3]);
-            printf("%f\n", pow(base, exponent));
+            printf("%f\n", math_pow(base, exponent)); 
 
         } else if (strcmp(argv[1], "--square") == 0 && argc == 3) {
             float a = atof(argv[2]);
-            printf("%f\n", square(a));
+            printf("%f\n", math_square(a));  
 
         } else if (strcmp(argv[1], "--cube") == 0 && argc == 3) {
             float a = atof(argv[2]);
-            printf("%f\n", cube(a));
+            printf("%f\n", math_cube(a));  
         }
         else if (strcmp(argv[1], "--sin") == 0 && argc == 4) {
             float a = atof(argv[2]);
@@ -92,17 +81,22 @@ int main(int argc, char *argv[])
                 printf("Steps must be a positive integer.\n");
                 return 1;
             }
-            printf("%f\n", sin(a, steps));
+            printf("%f\n", math_sin(a, steps)); 
+        }
+        else
+        {
+            printf("Unknown option '%s'. Use --help to see available options.\n", argv[1]);
+            return 1;
         }
     }
     else
     {
         printf("Wrong parameter. Use --help to see available options.\n");
         return 1; // Wrong parameter
-    }
+    } 
+    
 
-    getchar(); // pause before exit (Windows)
+     getchar(); // pause before exit (Windows)
 
     return failed_tests; // cmd/powershell:  echo $LASTEXITCODE
 }
-

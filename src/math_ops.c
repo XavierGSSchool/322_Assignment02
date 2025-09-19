@@ -2,18 +2,17 @@
 
 // --------- FUNCTION IMPLEMENTATIONS ------------
 
-
-float square(float x) 
+float math_square(float x) 
 {
     return x * x;
 }
 
-float cube(float x) 
+float math_cube(float x) 
 {
     return x * x * x;
 }
 
-float pow(float base, int exponent ) 
+float math_pow(float base, int exponent) 
 {
     float res = 1;
     for(int i = 0; i < exponent; i++) 
@@ -23,34 +22,32 @@ float pow(float base, int exponent )
     return res;
 }
 
-float multiply(float x, float y) 
+float math_multiply(float x, float y) 
 {
     return x * y;
 }
 
-float add(float x, float y) 
+float math_add(float x, float y) 
 {
     return x + y;
 }
 
-float sub(float a, float b)
+float math_sub(float a, float b)
 {
     return a - b;
 }
 
-float divide(float a, float b)
+float math_divide(float a, float b)
 {
     if (b == 0.0f)
     {
-        // cannot divide by zero
         printf("Error: Division by zero\n");
         return 0.0f;
     }
     return a / b;
 }
 
-float sin(float x, int steps) {
-    
+float math_sin(float x, int steps) {
     float result = 0.0;
     float term;
     int sign = 1;
@@ -58,13 +55,13 @@ float sin(float x, int steps) {
     for (int n = 0; n < steps; ++n) {
         int power = 2 * n + 1;
 
-        // Compute exponet
+        // Compute numerator (x^power)
         float numerator = 1.0;
         for (int i = 0; i < power; ++i) {
             numerator *= x;
         }
 
-        // Compute power
+        // Compute denominator (power!)
         float denominator = 1.0;
         for (int i = 1; i <= power; ++i) {
             denominator *= i;
