@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
             printf("  --power a b          Raise a to the power of b\n");
             printf("  --square a           Square of a number\n");
             printf("  --cube a             Cube of a number\n");
+            printf("  --sin a steps        Compute sine of a (radians) using Taylor series with steps terms\n");
         }
         // Math operations Implemented how I think Pach wants
         else if (strcmp(argv[1], "--addition") == 0 && argc == 4) {
@@ -84,7 +85,15 @@ int main(int argc, char *argv[])
             float a = atof(argv[2]);
             printf("%f\n", cube(a));
         }
-
+        else if (strcmp(argv[1], "--sin") == 0 && argc == 4) {
+            float a = atof(argv[2]);
+            int steps = atoi(argv[3]);
+            if (steps <= 0) {
+                printf("Steps must be a positive integer.\n");
+                return 1;
+            }
+            printf("%f\n", sin(a, steps));
+        }
     }
     else
     {
