@@ -48,3 +48,32 @@ float divide(float a, float b)
     }
     return a / b;
 }
+
+float sin(float x, int steps) {
+    
+    float result = 0.0;
+    float term;
+    int sign = 1;
+
+    for (int n = 0; n < steps; ++n) {
+        int power = 2 * n + 1;
+
+        // Compute exponet
+        float numerator = 1.0;
+        for (int i = 0; i < power; ++i) {
+            numerator *= x;
+        }
+
+        // Compute power
+        float denominator = 1.0;
+        for (int i = 1; i <= power; ++i) {
+            denominator *= i;
+        }
+
+        term = sign * (numerator / denominator);
+        result += term;
+        sign *= -1;
+    }
+
+    return result;
+}
