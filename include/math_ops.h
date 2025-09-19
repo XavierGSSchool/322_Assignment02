@@ -10,6 +10,7 @@ float multiply(float x, float y);
 float add(float x, float y);
 float sub(float a, float b);
 float divide(float a, float b);
+float sin(float x, int steps);
 
 
 /* End of math_ops_h */
