@@ -49,27 +49,17 @@ float math_divide(float a, float b)
 
 float math_sin(float x, int steps) {
     float result = 0.0;
-    float term;
-    int sign = 1;
+    float term = x;    
 
-    for (int n = 0; n < steps; ++n) {
+    result += term;
+
+    for (int n = 1; n < steps; ++n) {
         int power = 2 * n + 1;
+        
+        // term = term * (-1) * x^2 / ((2n)*(2n+1))
+        term *= -1 * x * x / ((power - 1) * power);
 
-        // Compute numerator (x^power)
-        float numerator = 1.0;
-        for (int i = 0; i < power; ++i) {
-            numerator *= x;
-        }
-
-        // Compute denominator (power!)
-        float denominator = 1.0;
-        for (int i = 1; i <= power; ++i) {
-            denominator *= i;
-        }
-
-        term = sign * (numerator / denominator);
         result += term;
-        sign *= -1;
     }
 
     return result;
