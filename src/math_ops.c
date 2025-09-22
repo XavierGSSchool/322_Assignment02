@@ -48,7 +48,21 @@ float math_divide(float a, float b)
 }
 
 float math_sin(float x, int steps) {
-   return 1.0; // changed applied
+    float result = 0.0;
+    float term = x;    
+
+    result += term;
+
+    for (int n = 1; n < steps; ++n) {
+        int power = 2 * n + 1;
+        
+        // term = term * (-1) * x^2 / ((2n)*(2n+1))
+        term *= -1 * x * x / ((power - 1) * power);
+
+        result += term;
+    }
+
+    return result;
 }
 
 float math_cos(float x, int steps) {
@@ -60,9 +74,5 @@ float math_cos(float x, int steps) {
 
         // term = term * (-1) * x^2 / ((2n - 1) * (2n))
         term *= -1 * x * x / ((power - 1) * power);
-
-        result += term;
     }
-
-    return result;
 }
