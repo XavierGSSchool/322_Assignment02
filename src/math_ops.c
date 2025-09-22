@@ -47,7 +47,7 @@ float math_divide(float a, float b)
     return a / b;
 }
 
-float math_sin(float x ) {  
+float math_sin(float x, int steps ) {  
     // convert to degrees to radians
     x = x  * 3.14159265358979323846f / 180.0f;  
     int steps = 10;            
@@ -66,7 +66,7 @@ float math_sin(float x ) {
     return result;
 }
 
-float math_cos(float x ) {
+float math_cos(float x, int steps ) {
     // convert to degrees to radians
     x = x  * 3.14159265358979323846f / 180.0f;  
     int steps = 10;

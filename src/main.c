@@ -77,11 +77,13 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(argv[1], "--sin") == 0 && argc == 4) {
             float a = atof(argv[2]);
-            printf("%f\n", math_sin(a)); 
+             int steps = atoi(argv[3]);
+            printf("%f\n", math_sin(a, steps)); 
         }
         else if (strcmp(argv[1], "--cos") == 0 && argc == 4) {
             float a = atof(argv[2]);
-            printf("%f\n", math_cos(a)); 
+            int steps = atoi(argv[3]);
+            printf("%f\n", math_cos(a, steps)); 
         }
         else
         {
