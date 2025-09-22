@@ -77,21 +77,11 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(argv[1], "--sin") == 0 && argc == 4) {
             float a = atof(argv[2]);
-            int steps = atoi(argv[3]);
-            if (steps <= 0) {
-                printf("Steps must be a positive integer.\n");
-                return 1;
-            }
-            printf("%f\n", math_sin(a, steps)); 
+            printf("%f\n", math_sin(a)); 
         }
         else if (strcmp(argv[1], "--cos") == 0 && argc == 4) {
             float a = atof(argv[2]);
-            int steps = atoi(argv[3]);
-            if (steps <= 0) {
-                printf("Steps must be a positive integer.\n");
-                return 1;
-            }
-            printf("%f\n", math_cos(a, steps)); 
+            printf("%f\n", math_cos(a)); 
         }
         else
         {

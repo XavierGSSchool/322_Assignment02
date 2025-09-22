@@ -47,39 +47,38 @@ float math_divide(float a, float b)
     return a / b;
 }
 
-float math_sin(float x, int steps) {
-    // hard code steps
-    steps = 10;
-    float result = 0.0;
-    float term = x;    
+float math_sin(float x ) {  
+    // convert to degrees to radians
+    x = x  * 3.14159265358979323846f / 180.0f;  
+    int steps = 10;            
+
+    float result = 0.0f;
+    float term = x;
 
     result += term;
 
     for (int n = 1; n < steps; ++n) {
         int power = 2 * n + 1;
-        
-        // term = term * (-1) * x^2 / ((2n)*(2n+1))
-        term *= -1 * x * x / ((power - 1) * power);
-
+        term *= -x * x / ((power - 1) * power);
         result += term;
     }
 
     return result;
 }
 
-float math_cos(float x, int steps) {
-    // hard code steps
-    steps = 10;
-    float result = 1.0;   
-    float term = 1.0;   
-    // cos(x) uses even powers: 2, 4, 6, ... 
+float math_cos(float x ) {
+    // convert to degrees to radians
+    x = x  * 3.14159265358979323846f / 180.0f;  
+    int steps = 10;
+
+    float result = 1.0f;
+    float term = 1.0f;
+
     for (int n = 1; n < steps; ++n) {
-        int power = 2 * n; 
-
-        // term = term * (-1) * x^2 / ((2n - 1) * (2n))
-        term *= -1 * x * x / ((power - 1) * power);
-
+        int power = 2 * n;
+        term *= -x * x / ((power - 1) * power);
         result += term;
     }
+
     return result;
 }

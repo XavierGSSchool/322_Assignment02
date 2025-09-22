@@ -11,8 +11,8 @@ float math_multiply(float x, float y);
 float math_add(float x, float y);
 float math_sub(float a, float b);
 float math_divide(float a, float b);
-float math_sin(float x, int steps);
-float math_cos(float x, int steps);
+float math_sin(float x);
+float math_cos(float x);
 
 
 /* End of math_ops_h */
