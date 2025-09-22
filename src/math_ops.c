@@ -50,3 +50,19 @@ float math_divide(float a, float b)
 float math_sin(float x, int steps) {
    return 1.0; // changed applied
 }
+
+float math_cos(float x, int steps) {
+    float result = 1.0;   
+    float term = 1.0;   
+    // cos(x) uses even powers: 2, 4, 6, ... 
+    for (int n = 1; n < steps; ++n) {
+        int power = 2 * n; 
+
+        // term = term * (-1) * x^2 / ((2n - 1) * (2n))
+        term *= -1 * x * x / ((power - 1) * power);
+
+        result += term;
+    }
+
+    return result;
+}

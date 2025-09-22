@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
             printf("  --square a           Square of a number\n");
             printf("  --cube a             Cube of a number\n");
             printf("  --sin x steps        Compute sine of a (radians) using Taylor series with steps terms\n");
+            printf("  --cos x steps        Compute cosine of a (radians) using Taylor series with steps terms\n");
         }
         // Math operations
         else if (strcmp(argv[1], "--addition") == 0 && argc == 4) {
@@ -82,6 +83,15 @@ int main(int argc, char *argv[])
                 return 1;
             }
             printf("%f\n", math_sin(a, steps)); 
+        }
+        else if (strcmp(argv[1], "--cos") == 0 && argc == 4) {
+            float a = atof(argv[2]);
+            int steps = atoi(argv[3]);
+            if (steps <= 0) {
+                printf("Steps must be a positive integer.\n");
+                return 1;
+            }
+            printf("%f\n", math_cos(a, steps)); 
         }
         else
         {
