@@ -74,5 +74,8 @@ float math_cos(float x, int steps) {
 
         // term = term * (-1) * x^2 / ((2n - 1) * (2n))
         term *= -1 * x * x / ((power - 1) * power);
+        
+        result += term;
     }
+    return result;
 }
