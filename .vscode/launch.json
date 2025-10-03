@@ -5,7 +5,7 @@
       "name": "C: gcc.exe build and debug (external Console)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}\\bin\\main.exe",
+      "program": "${workspaceFolder}\\BIN_DIR\\main.exe",
       "args": ["--sin", "45", "10"], // argues! ["1","2"]
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
